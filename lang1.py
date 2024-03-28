@@ -1,0 +1,1 @@
+print("My new DUCK language.")
