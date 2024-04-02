@@ -1,0 +1,7 @@
+~ This is a file that just prints items to the console.
+mcduck var1Q << 10 !
+mcduck var2Q << 25 !
+mcduck var3Q << var1Q m var2Q !
+daffy s1Q << ,,,Welcome to my first program,,, !
+
+quack var3Q ,,,and,,, s1Q !
