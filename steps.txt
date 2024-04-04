@@ -1,0 +1,79 @@
+Phase 1: Design the Language
+
+1. Make sure everyone in Github
+2. Theme
+3. Brainstorm
+4. Syntax
+5. var types ..... keywords..... 
+6. demo code
+
+Phase 2: Interpret the Language
+
+7. Create a blueprint for the lexer output (types)
+8. Create a lexer (take in FILE and split into tokens)
+9. Create test cases to make sure the lexer is working
+
+
+
+
+
+
+Steps for Lexer:
+1. Split demo code into words (tokens)
+2. Ignore comments --- don't even tokenize 
+      them 
+      a. Stop tokenizing until newline char
+3. Store every token as a labeled piece of 
+      data; with a category
+      a. Identifies -> var names, function names, class names
+      b. Operators -> =, +, -, %, == 
+      c. Numbers -> 2, 1.3, .....
+      d. Strings -> "hello" "idk"
+
+4. Two steps to storage:
+    a. Decide categories and build dict/enum
+
+const Types = {
+    IDENTIFIER: "IDENTIFIER",
+    OPERATOR: "OPERATOR", 
+    ...
+};
+
+
+    b. Store every token with a label
+
+const tokens = [
+    {"Type": Type.IDENTIFIER , "value":"num1"},
+    {"Type": Type.OPERATOR , "value":"="},
+    {"Type": Type.NUMBER , "value": 1.5},
+
+    [Type.IDENTIFIER , "num1"],
+    ...
+    ...
+    ..
+    ...
+
+
+    .
+    .
+    .
+
+    .
+    .
+    .
+    .
+    .
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
