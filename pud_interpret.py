@@ -6,6 +6,7 @@ print("My new PUDDLE language.")
 Some additional thoughts:
 1. Where do I check the grammar?
 2. How do I handle multiple lines of commands?
+3. Where do I store variables as I'm interpreting code?
 
 '''
 
