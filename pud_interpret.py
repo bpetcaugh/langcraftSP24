@@ -5,7 +5,7 @@ print("My new PUDDLE language.")
 '''
 Some additional thoughts:
 1. Where do I check the grammar?
-2. How do I handle multiple lines of commands?
+2. How do I handle multiple lines of commands? (???)
 3. Where do I store variables as I'm interpreting code?
 
 '''
@@ -38,7 +38,6 @@ class Lexer:
 
         return self.out
 
-
 class Parser:
     def __init__(self, tokens):
         self.tokens = tokens
@@ -50,6 +49,11 @@ class Parser:
         self.current_token = next(self.it, None)
 
     def parse(self):
+        '''
+        BEFORE you build the AST, check that the command is
+        a valid grammar. 
+        '''
+
         """ Parses the tokens into an AST based on simple arithmetic rules. """
         if not self.current_token:
             return None  # Early exit if there are no tokens
@@ -76,7 +80,6 @@ class Parser:
 
         return left
 
-
 def pretty_print_ast(ast, indent=0):
     """ Recursively prints the AST in a human-readable format with indentation. """
     if ast['Type'] == 'Literal':
@@ -87,7 +90,6 @@ def pretty_print_ast(ast, indent=0):
         pretty_print_ast(ast['left'], indent + 4)
         print(' ' * indent + '└─ right:')
         pretty_print_ast(ast['right'], indent + 4)
-
 
 class Interpreter:
     def __init__(self):
@@ -117,8 +119,10 @@ class Interpreter:
                 raise ValueError(f"Unsupported operator: {ast['operator']}")
 
 
+vars = {"x":2, "y":5}
 
-input = "2 + 4 + 5 - 6"
+input = "2 + + + 4 + 6 + 8 + 1000"
+
 print("\n--------INPUT--------")
 print(input)
 
@@ -133,7 +137,7 @@ print("")
 ast = Parser(tokens).parse()
 
 print("\n--------AST--------")
-pretty_print_ast(ast)
+print(ast)
 
 result = Interpreter().evaluate_ast(ast)
 
