@@ -13,6 +13,9 @@ Phase 2: Interpret the Language
 8. Create a lexer (take in FILE and split into tokens)
 9. Create test cases to make sure the lexer is working
 
+Phase 3:
+10. Building a parser (understanding trees.....)
+
 
 
 
