@@ -118,28 +118,35 @@ class Interpreter:
             else:
                 raise ValueError(f"Unsupported operator: {ast['operator']}")
 
+input = ""
+debug = False
 
-vars = {"x":2, "y":5}
+with open("test.pud", "r") as file:
+    input = file.read().replace("\n", " ")
 
-input = "2 + + + 4 + 6 + 8 + 1000"
-
-print("\n--------INPUT--------")
-print(input)
+if debug:
+    print("\n--------INPUT--------")
+    print(input)
 
 tokens = Lexer(input).lex()
 
-print("\n--------TOKENS--------")
-print("")
-for t in tokens:
-    print(t)
-print("")
+if debug:
+    print("\n--------TOKENS--------")
+    print("")
+    for t in tokens:
+        print(t)
+    print("")
 
 ast = Parser(tokens).parse()
 
-print("\n--------AST--------")
-print(ast)
+if debug:
+    print("\n--------AST--------")
+    print(ast)
 
 result = Interpreter().evaluate_ast(ast)
 
-print("\n--------RESULT--------")
-print(f" The result of your line of code is: {result}\n")
+if debug:
+    print("\n--------RESULT--------")
+    print(f" The result of your line of code is: {result}\n")
+else:
+    print(result)
