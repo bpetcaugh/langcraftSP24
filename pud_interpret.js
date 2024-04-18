@@ -114,13 +114,27 @@ class Interpreter {
 }
 
 
-let debug = true;
+let debug = false;
 let input = "";
 
 const fs = require('fs');
 
+/*
+// SIMPLE way to store file path
 // Specify the file path
 const filePath = 'test.pud';
+*/
+
+//NEW way to store file path from command line
+
+// Check if the input file argument is provided
+if (process.argv.length < 3) {
+    console.log("Usage: node script.js <inputfile>");
+    process.exit(1);
+}
+
+// Get the filename from command line arguments
+const filePath = process.argv[2];
 
 try {
     // Read the file synchronously

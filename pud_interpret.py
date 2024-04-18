@@ -1,7 +1,7 @@
 from enum import Enum
 import re
+import sys
 
-print("My new PUDDLE language.")
 '''
 Some additional thoughts:
 1. Where do I check the grammar?
@@ -121,8 +121,25 @@ class Interpreter:
 input = ""
 debug = False
 
-with open("test.pud", "r") as file:
-    input = file.read().replace("\n", " ")
+# Run file without command line
+# with open("test.pud", "r") as file:
+#     input = file.read().replace("\n", " ")
+
+################################################################
+#Check for Puddle file type, and run on command line
+if len(sys.argv) > 1:
+    if not sys.argv[1].endswith('.pud'):
+        print("Error: The file is not a Puddle file.")
+        sys.exit()
+
+try:
+    with open(sys.argv[1], 'r') as file:
+        input = file.read().replace("\n", " ")
+except FileNotFoundError:
+    print("Error: The file does not exist.")
+except Exception as e:
+    print(f"An error occurred: {e}")
+################################################################
 
 if debug:
     print("\n--------INPUT--------")
